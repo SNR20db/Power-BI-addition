@@ -30,7 +30,16 @@ df['gini value'] =  df['gini'].apply( lambda x: ','.join( [ str( value ) for val
 df['car side'] = df['car'].apply( lambda x: x.get( 'side' )  )
 
 df['time zones'] = df['timezones'].apply( lambda x: ','.join(x) )
-
 df['continent'] = df['continents'].apply (lambda x: ','.join(x) )
+
+df['flag png'] = df['flags'].apply( lambda x: x.get( 'png' ) )
+
+df['coat of arms png'] = df['coatOfArms'].apply( lambda x: x.get( 'png' ) ) 
+
+df['capital latitude'] = df['capitalInfo'].apply( lambda x: x.get('latlng')[0] if type( x.get('latlng') ) != type( None ) else None )
+df['capital longitude'] = df['capitalInfo'].apply( lambda x: x.get('latlng')[1] if type( x.get('latlng') ) != type( None ) else None )
+
+df['postal code format'] = df['postalCode'].apply( lambda x: x.get('format') if type( x ) != type( float() ) else None )
+df['postal code regex'] = df['postalCode'].apply( lambda x: x.get('regex') if type( x ) != type( float() ) else None )
 
 print( df )
