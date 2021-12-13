@@ -99,7 +99,6 @@ def _get_json_from_csv(data:str = None, fieldnames:tuple = None, **kwargs) -> js
 
 def get_stations_full(**kwargs) -> json:
     """retrieves station full information.
-
     Parameters
     ----------
     **kwargs :
@@ -110,7 +109,6 @@ def get_stations_full(**kwargs) -> json:
     -------
     json
         the requested data.
-
     See: 
     
         https://dev.meteostat.net/bulk/stations.html#endpoints
@@ -157,10 +155,8 @@ df['identifier national'] = df['identifiers'].apply( lambda x: str( x.get( 'nati
 df['identifier wmo'] = df['identifiers'].apply( lambda x: str( x.get( 'wmo' ) ) )
 df['identifier icao'] = df['identifiers'].apply( lambda x: str( x.get( 'icao' ) ) )
 
-df['location'] = df['location'].apply( lambda x: str( x.get( 'latitude' ) ) )
-df['location'] = df['location'].apply( lambda x: str( x.get( 'longitude' ) ) )
-df['location'] = df['location'].apply( lambda x: str( x.get( 'elevetion' ) ) )
+df['latitude'] = df['location'].apply( lambda x: str( x.get( 'latitude' ) ) )
+df['longitude'] = df['location'].apply( lambda x: str( x.get( 'longitude' ) ) )
+df['elevation'] = df['location'].apply( lambda x: str( x.get( 'elevation' ) ) )
 
 print( df )
-
-
