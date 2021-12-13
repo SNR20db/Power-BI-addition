@@ -13,8 +13,11 @@ my_function = lambda x: ','.join([key for key in x]) if type(x) != type( float()
 df['currency'] = df['currencies'].apply( my_function )
 df['language'] = df['languages'].apply( my_function )
 df['capital city'] = df['capital'].apply( my_function )
+df['border'] = df['borders'].apply( my_function )
 
 df['latitude'] = df['latlng'].apply( lambda x: x[0] )
 df['longitude'] = df['latlng'].apply( lambda x: x[1] )
+
+#df['']
 
 print( df )
