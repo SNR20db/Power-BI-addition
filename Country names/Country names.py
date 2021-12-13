@@ -1,8 +1,13 @@
 import pandas as pd
-import requests as r
+import requests
 
-res=r.get("https://restcountries.eu/rest/v2/all")
+response = requests.get( "https://restcountries.com/v3.1/all" )
 
-res=pd.DataFrame(res.json())
+df = pd.DataFrame( response.json() )
 
-print(res)
+df['common name'] = df['name'].apply( lambda x: x.get( 'common' ) )
+df['official name'] = df['name'].apply( lambda x: x.get( 'official' ) )
+
+#df['currency'] = df['currencies'].apply( lambda x:  x )
+
+print( df )
