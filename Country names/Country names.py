@@ -29,4 +29,8 @@ df['gini value'] =  df['gini'].apply( lambda x: ','.join( [ str( value ) for val
 
 df['car side'] = df['car'].apply( lambda x: x.get( 'side' )  )
 
+df['time zones'] = df['timezones'].apply( lambda x: ','.join(x) )
+
+df['continent'] = df['continents'].apply (lambda x: ','.join(x) )
+
 print( df )
